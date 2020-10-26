@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zooma="http://www.ebi.ac.uk/fgpt/zooma/zooma-owl-loader" xmlns:zoomacsv="http://www.ebi.ac.uk/fgpt/zooma/zooma-csv-loader" xsi:schemaLocation="        http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans.xsd        http://www.ebi.ac.uk/fgpt/zooma/zooma-owl-loader        http://www.ebi.ac.uk/fgpt/zooma/zooma-owl-loader.xsd        http://www.ebi.ac.uk/fgpt/zooma/zooma-csv-loader        http://www.ebi.ac.uk/fgpt/zooma/zooma-csv-loader.xsd">
+	
+	<zooma:owlAnnotations name="cob"
+												uri="http://purl.obolibrary.org/obo/cob.owl"
+												loadFrom="http://purl.obolibrary.org/obo/cob.owl"
+												exclusionClassURI="http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+												exclusionAnnotationURI="http://www.ebi.ac.uk/efo/organizational_class">
+		<zooma:synonym uri="http://www.ebi.ac.uk/efo/alternative_term"/>
+		<zooma:synonym uri="http://www.w3.org/2004/02/skos/core#altLabel"/>
+		<zooma:synonym uri="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
+		<zooma:synonym uri="http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym"/>
+		<zooma:synonym uri="http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym"/>
+		<zooma:synonym uri="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
+	</zooma:owlAnnotations>
+	
+	<!-- <zoomacsv:csvAnnotations name="IHCC-Mapping-suggestions-simplestring"
+					uri="https://ihccglobal.org/"
+					loadFrom="https://raw.githubusercontent.com/IHCC-cohorts/data-harmonization/master/data/ihcc-mapping-suggestions-zooma.tsv"
+					delimiter="\t" /> -->
+</beans>

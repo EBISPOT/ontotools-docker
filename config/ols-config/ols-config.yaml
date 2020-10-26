@@ -1,0 +1,37 @@
+'@context': null
+ontologies:
+
+  - id: cob
+    preferredPrefix: COB
+    title: Core Ontology for Biology and Biomedicine
+    description: >
+      The Core Ontology for Biology and Biomedicine (COB) brings together key terms from a wide range of OBO projects into a single, small ontology. The goal is to improve interoperabilty and reuse across the OBO community through better coordination of key terms.
+    uri: http://purl.obolibrary.org/obo/cob.owl
+    base_uri:
+      - http://purl.obolibrary.org/obo/COB_
+    synonym_property:
+      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+#    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
+    reasoner: EL
+    oboSlims: false
+    ontology_purl: http://purl.obolibrary.org/obo/cob.owl
+    allow_download: false
+  - id: test
+    preferredPrefix: TEST
+    title: Test OLS Load Ontology
+    description: >
+      Test ontology for the purpose of loading a local file instead of a URL.
+    uri: http://purl.obolibrary.org/foo/bar.owl
+    base_uri:
+      - http://purl.obolibrary.org/foo/TEST_
+    synonym_property:
+      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+#    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
+    reasoner: EL
+    oboSlims: false
+    ontology_purl: file:/mnt/downloads/test.owl
+    allow_download: false

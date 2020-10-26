@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Lucene configuration for ZOOMA text indexes -->
+
+    <!-- 
+    <bean id="version" class="org.apache.lucene.util.Version" factory-method="valueOf">
+        <constructor-arg value="LUCENE_5_3_0" />
+    </bean>
+    -->
+
+    <bean id="analyzer" class="org.apache.lucene.analysis.en.EnglishAnalyzer">
+        <!-- <constructor-arg name="matchVersion" ref="version" /> -->
+        <!-- use empty stopword set; stopwords in properties usually convey meaning (e.g. "no diabetes") -->
+        <constructor-arg name="stopwords" ref="stopwordSet" />
+    </bean>
+
+    <bean id="stopwordSet" class="org.apache.lucene.analysis.util.CharArraySet">
+        <constructor-arg name="startSize" value="0" />
+        <constructor-arg name="ignoreCase" value="true" />
+    </bean>
+
+    <bean id="similarity" class="uk.ac.ebi.fgpt.zooma.util.ZoomaSimilarity" />
+
+    <bean id="propertyIndexDirectory" class="java.nio.file.Paths" factory-method="get">
+        <constructor-arg value="file://${zooma.data.dir}/index/lucene/property" />
+    </bean>
+
+    <bean id="propertyTypeIndexDirectory" class="java.nio.file.Paths" factory-method="get">
+        <constructor-arg value="file://${zooma.data.dir}/index/lucene/property_type" />
+    </bean>
+
+    <bean id="annotationCountIndexDirectory" class="java.nio.file.Paths" factory-method="get">
+        <constructor-arg value="file://${zooma.data.dir}/index/lucene/annotation_count" />
+    </bean>
+
+    <bean id="annotationIndexDirectory" class="java.nio.file.Paths" factory-method="get">
+        <constructor-arg value="file://${zooma.data.dir}/index/lucene/annotation" />
+    </bean>
+
+    <bean id="annotationSummaryIndexDirectory" class="java.nio.file.Paths" factory-method="get">
+        <constructor-arg value="file://${zooma.data.dir}/index/lucene/annotation_summary" />
+    </bean>
+
+    <bean id="propertyIndex" class="org.apache.lucene.store.RAFDirectory">
+        <constructor-arg ref="propertyIndexDirectory" />
+    </bean>
+
+    <bean id="propertyTypeIndex" class="org.apache.lucene.store.RAFDirectory">
+        <constructor-arg ref="propertyTypeIndexDirectory" />
+    </bean>
+
+    <bean id="annotationCountIndex" class="org.apache.lucene.store.RAFDirectory">
+        <constructor-arg ref="annotationCountIndexDirectory" />
+    </bean>
+
+    <bean id="annotationIndex" class="org.apache.lucene.store.RAFDirectory">
+        <constructor-arg ref="annotationIndexDirectory" />
+    </bean>
+
+    <bean id="annotationSummaryIndex" class="org.apache.lucene.store.RAFDirectory">
+        <constructor-arg ref="annotationSummaryIndexDirectory" />
+    </bean>
+
+    <bean id="luceneIndexer" class="uk.ac.ebi.fgpt.zooma.service.ZoomaLuceneIndexer" destroy-method="destroy">
+        <property name="analyzer" ref="analyzer" />
+        <property name="maxEntityCount" value="20000" />
+        <property name="annotationDAO" ref="lodeLuceneAnnotationDAO" />
+        <property name="propertyDAO" ref="lodePropertyDAO" />
+        <property name="annotationSummaryDAO" ref="lodeLuceneAnnotationSummaryDAO" />
+        <property name="propertyIndex" ref="propertyIndex" />
+        <property name="propertyTypeIndex" ref="propertyTypeIndex" />
+        <property name="annotationCountIndex" ref="annotationCountIndex" />
+        <property name="annotationIndex" ref="annotationIndex" />
+        <property name="annotationSummaryIndex" ref="annotationSummaryIndex" />
+    </bean>
+
+</beans>

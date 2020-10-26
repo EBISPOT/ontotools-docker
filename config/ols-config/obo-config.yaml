@@ -1,0 +1,10 @@
+name: OBO Foundry
+title: The OBO Foundry
+markdown: kramdown
+highlighter: rouge
+baseurl: /
+imgurl: /images
+repo: https://github.com/OBOFoundry/OBOFoundry.github.io/
+repo_src: https://github.com/OBOFoundry/OBOFoundry.github.io/blob/master/
+author:
+  name: OBO Technical WG

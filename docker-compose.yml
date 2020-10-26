@@ -1,0 +1,118 @@
+version: '3.8'
+services:
+    ols-solr:
+        image: ebispot/ols-solr:latest
+        environment:
+          - SOLR_HOME=/mnt/solr-config
+        ports:
+          - 8983:8983
+        volumes:
+          - ols-solr-data:/var/solr
+          - ./config/ols-solr5-config:/mnt/solr-config
+        command: ["-Dsolr.solr.home=/mnt/solr-config", "-Dsolr.data.dir=/var/solr", "-Dsolr.log=/mnt/solr-data/logs", "-f"]
+    ols-mongo:
+      image: mongo:3.2.9
+      ports:
+          - 27017:27017
+      volumes:
+          - ols-mongo-data:/data/db
+      command:
+          - mongod
+    ols-web:
+      image: ebispot/ols-web:latest
+      depends_on:
+        - ols-solr
+        - ols-mongo
+      links:
+        - ols-solr
+        - ols-mongo
+      environment:
+        - spring.data.solr.host=http://ols-solr:8983/solr
+        - spring.data.mongodb.host=ols-mongo
+        - OLS_HOME=/mnt/
+        - ols.customisation.debrand=true
+        - ols.customisation.logo=/custom/logo.png
+        - ols.customisation.title=OLS Instance
+        - ols.customisation.org=CUSTOM
+        - ols.customisation.short-title=CUSTOM-OLS
+      volumes:
+        - ./ols-neo4j-data:/mnt/neo4j
+        - ./config/ols-config/logo.png:/mnt/web-custom/logo.png
+      ports:
+      - 8080:8080
+    oxo-solr:
+        image: ebispot/ols-solr:latest
+        environment:
+          - SOLR_HOME=/mnt/solr-config
+        ports:
+          - 8985:8983
+        volumes:
+          - oxo-solr-data:/var/solr
+          - ./config/oxo-solr5-config:/mnt/solr-config
+        command: ["-Dsolr.solr.home=/mnt/solr-config", "-Dsolr.data.dir=/var/solr", "-Dsolr.log=/mnt/solr-data/logs", "-f"]
+    oxo-neo4j:
+        image: neo4j:3.1.1
+        environment:
+            # - NEO4J_HEAP_MEMORY=10g # configure the heap memory
+            # - NEO4J_dbms_memory_heap_maxSize=8g
+          - NEO4J_AUTH=neo4j/dba
+        cap_add:
+          - SYS_RESOURCE
+        ports:
+          - 7474:7474
+          - 7687:7687
+        volumes:
+          - ./oxo-neo4j-import:/var/lib/neo4j/import
+          - oxo-neo4j-data:/data
+    oxo-web:
+        image: ebispot/oxo-web:latest
+        depends_on:
+          - oxo-neo4j
+          - oxo-solr
+          - ols-web
+        links:
+          - oxo-neo4j
+          - oxo-solr
+          - ols-web
+        environment:
+          - spring.datasource.url=jdbc:hsqldb:file:/mnt/hsqldb
+          - oxo.neo.driver=org.neo4j.ogm.drivers.http.driver.HttpDriver
+          - oxo.neo.uri=http://neo4j:dba@oxo-neo4j:7474
+          - spring.data.solr.host=http://oxo-solr:8983/solr
+          - oxo.customisation.debrand=true
+          - oxo.customisation.logo=/custom/logo.png
+          - oxo.customisation.title=OxO Instance
+          - oxo.customisation.org=CUSTOM
+          - oxo.customisation.short-title=CUSTOM-OxO
+          - OXO_CUSTOM=/mnt/custom
+        volumes:
+          - oxo-hsqldb:/mnt/hsqldb
+          - ./config/oxo-config/logo.png:/mnt/custom/logo.png
+        ports:
+        - 8008:8080
+    zooma-web:
+      image: ebispot/zooma-web:latest
+      depends_on:
+        - ols-web
+      links:
+        - ols-web
+      environment:
+        - ols.term.location=http://ols-web:8080/ols/api/terms?iri=
+        - ZOOMA_HOME=/root/.zooma
+        - ZOOMA_DATA_DIR=/root/.zooma/data
+      volumes:
+        - ./config/zooma-config/config:/root/.zooma/config
+        - ./config/zooma-config/loaders:/root/.zooma/loaders
+        - ./zooma-data:/root/.zooma/data
+      ports:
+      - 8009:8080
+volumes:
+    ols-solr-data:
+    ols-mongo-data:
+    oxo-neo4j-data:
+    oxo-mongo-data:
+    oxo-solr-data:
+    oxo-hsqldb:
+networks:
+  default:
+    name: customolsnet

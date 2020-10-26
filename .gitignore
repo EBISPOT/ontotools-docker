@@ -1,0 +1,8 @@
+/ols-downloads
+/ols-mongo-data
+/ols-neo4j-data
+/ols-solr
+/oxo-neo4j-import
+/zooma-data
+.DS_Store
+scripts/.ipynb_checkpoints
