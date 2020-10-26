@@ -19,7 +19,7 @@ services:
       command:
           - mongod
     ols-web:
-      image: ebispot/ols-web:latest
+      image: ihcc/ols-web:latest
       depends_on:
         - ols-solr
         - ols-mongo
@@ -65,7 +65,7 @@ services:
           - ./oxo-neo4j-import:/var/lib/neo4j/import
           - oxo-neo4j-data:/data
     oxo-web:
-        image: ebispot/oxo-web:latest
+        image: ihcc/oxo-web:latest
         depends_on:
           - oxo-neo4j
           - oxo-solr
@@ -91,7 +91,7 @@ services:
         ports:
         - 8008:8080
     zooma-web:
-      image: ebispot/zooma-web:latest
+      image: ihcc/zooma-web:latest
       depends_on:
         - ols-web
       links:

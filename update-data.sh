@@ -36,7 +36,9 @@ EBISPOT_OXOLOADER=ebispot/oxo-loader:dev
 EBISPOT_OXOINDEXER=ebispot/oxo-indexer:dev
 EBISPOT_OLSCONFIGIMPORTER=ebispot/ols-config-importer:stable
 EBISPOT_OLSINDEXER=ebispot/ols-indexer:stable
-IHCC_OXOLOADER=matentzn/oxo-loader:0.0.1
+
+# Necessary until fixed.
+CUSTOM_OXOLOADER=matentzn/oxo-loader:0.0.1
 
 ######## Solr Services ########################
 OXO_SOLR=http://oxo-solr:8983/solr
@@ -81,13 +83,13 @@ echo "INFO: OXO - Extract mappings... ($SECONDS sec)"
 $DOCKERRUN -v "$OXOCONFIGDIR"/oxo-config.ini:/mnt/config.ini \
     -v "$NEO4J_IMPORT_DIR":/mnt/neo4j \
     --network "$NETWORK" \
-    -it $IHCC_OXOLOADER python /opt/oxo-loader/OlsMappingExtractor.py -c /mnt/config.ini -t /mnt/neo4j/snomed_terms.csv -m /mnt/neo4j/snomed_mappings.csv
+    -it $CUSTOM_OXOLOADER python /opt/oxo-loader/OlsMappingExtractor.py -c /mnt/config.ini -t /mnt/neo4j/terms.csv -m /mnt/neo4j/mappings.csv
 
 echo "INFO: OXO - Load mappings... ($SECONDS sec)"
 $DOCKERRUN -v "$OXOCONFIGDIR"/oxo-config.ini:/mnt/config.ini \
     -v "$NEO4J_IMPORT_DIR":/var/lib/neo4j/import \
     --network "$NETWORK" \
-    -it $EBISPOT_OXOLOADER python /opt/oxo-loader/OxoNeo4jLoader.py -c /mnt/config.ini -t snomed_terms.csv -m snomed_mappings.csv
+    -it $EBISPOT_OXOLOADER python /opt/oxo-loader/OxoNeo4jLoader.py -c /mnt/config.ini -t terms.csv -m mappings.csv
 
 echo "INFO: OXO - Index mappings... ($SECONDS sec)"
 $DOCKERRUN --network "$NETWORK" \
@@ -98,5 +100,5 @@ echo "INFO: ZOOMA - Updating Zooma mappings... ($SECONDS sec)"
 $DOCKERCOMPOSE rm -f -s -v zooma-web
 $DOCKERCOMPOSE up -d zooma-web
 
-echo "INFO: Reindexing IHCC OLS/OXO pipeline completed in $SECONDS seconds!"
+echo "INFO: Reindexing CUSTOM OLS/OXO pipeline completed in $SECONDS seconds!"
 
