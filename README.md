@@ -1,4 +1,4 @@
-# SNOMED: The OLS/OXO Deployment Pipeline
+# CUSTOM OntoTools Deployment Pipeline
 
 The OLS/OXO/Zooma pipeline (just "pipeline" from now on) supports the following workflows:
 
