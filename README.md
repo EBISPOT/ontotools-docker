@@ -26,3 +26,7 @@ The pipeline performs the following steps, which are encoded as as series of doc
 ## WARNING
 
 We are currently using the IHCC images instead of the official EBI ones.. We should use those, but last time I checked they were not up to date.
+
+## Custom installations
+
+We have started to maintain a [list of known custom OLS installations](custom_ontotools_users.md). Please create an issue if you want your installation to be listed as well.
