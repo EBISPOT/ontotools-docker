@@ -29,4 +29,4 @@ We are currently using the IHCC images instead of the official EBI ones.. We sho
 
 ## Custom installations
 
-We have started to maintain a [list of known custom OLS installations](custom_ontotools_users.md). Please create an issue if you want your installation to be listed as well.
+We have started to maintain a [list of known custom OLS installations](docs/custom_ontotools_users.md). Please create an issue if you want your installation to be listed as well.
