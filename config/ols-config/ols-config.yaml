@@ -1,24 +1,5 @@
 '@context': null
 ontologies:
-
-#  - id: test
-#    preferredPrefix: TEST
-#    title: Test OLS Load Ontology
-#    description: >
-#      Test ontology for the purpose of loading a local file instead of a URL.
-#    uri: http://purl.obolibrary.org/foo/bar.owl
-#    base_uri:
-#      - http://purl.obolibrary.org/foo/TEST_
-#    synonym_property:
-#      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
-#    definition_property:
-#      - http://purl.obolibrary.org/obo/IAO_0000115
-##    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
-#    reasoner: EL
-#    oboSlims: false
-#    ontology_purl: file:/mnt/downloads/test.owl
-#    allow_download: false
-
   - id: pcl
     preferredPrefix: PCL
     title: PCL Ontology
@@ -34,7 +15,7 @@ ontologies:
  #   oboSlims: false
     ontology_purl: https://data.bioontology.org/ontologies/PCL/submissions/9/download?apikey=8b5b7825-538d-40e0-9e9e-5ab9274a9aeb
     allow_download: false
-
+    
   - id: bds
     preferredPrefix: BDS
     title: BDS Ontology
@@ -51,22 +32,10 @@ ontologies:
     ontology_purl: https://raw.githubusercontent.com/obophenotype/brain_data_standards_ontologies/master/bdscratch-full.owl
     allow_download: false
 
-  #- id: cl bds_subset
+  #- id: 
   #  preferredPrefix: 
-  #  title: CL BDS_subset 
-  #  description: CL BDS_subset 
-  #  uri: 
-  #  base_uri:
-  #    - 
-  #  synonym_property:
-  #    - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
-  #  definition_property:
-  #    - http://purl.obolibrary.org/obo/IAO_0000115'''
-
-  #- id: npo
-  #  preferredPrefix: NPO
-  #  title: NPO neurons
-  #  description: NPO neurons
+  #  title: 
+  #  description: 
   #  uri: 
   #  base_uri:
   #    - 
