@@ -4,7 +4,7 @@ ontologies:
     preferredPrefix: PCL
     title: PCL Ontology
     description: Description for PCL
-    uri: https://data.bioontology.org/ontologies/PCL/submissions/9/download?apikey=8b5b7825-538d-40e0-9e9e-5ab9274a9aeb
+    uri: https://raw.githubusercontent.com/obophenotype/ontotools-docker-config/master/scratch_resource/pCL_4.1.0.owl
     base_uri:
       - http://purl.obolibrary.org/obo/CL_
     synonym_property:
@@ -13,7 +13,7 @@ ontologies:
       - http://purl.obolibrary.org/obo/IAO_0000115
  #   reasoner: EL
  #   oboSlims: false
-    ontology_purl: https://data.bioontology.org/ontologies/PCL/submissions/9/download?apikey=8b5b7825-538d-40e0-9e9e-5ab9274a9aeb
+    ontology_purl: https://raw.githubusercontent.com/obophenotype/ontotools-docker-config/master/scratch_resource/pCL_4.1.0.owl
     allow_download: false
     
   - id: bds
