@@ -32,14 +32,44 @@ ontologies:
     ontology_purl: https://raw.githubusercontent.com/obophenotype/brain_data_standards_ontologies/master/bdscratch-full.owl
     allow_download: false
 
-  #- id: 
-  #  preferredPrefix: 
-  #  title: 
-  #  description: 
-  #  uri: 
-  #  base_uri:
-  #    - 
-  #  synonym_property:
-  #    - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
-  #  definition_property:
-  #    - http://purl.obolibrary.org/obo/IAO_0000115'''
+  - id: bds_subset
+    preferredPrefix: BDS_S
+    title: BDS Subset
+    description: BDS Subset description.
+    uri: https://raw.githubusercontent.com/obophenotype/cell-ontology/master/src/ontology/subsets/BDS_subset.owl
+    base_uri:
+      - http://purl.obolibrary.org/obo/BFO_
+    synonym_property:
+      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+    ontology_purl: https://raw.githubusercontent.com/obophenotype/cell-ontology/master/src/ontology/subsets/BDS_subset.owl
+    allow_download: false
+
+#  - id: npo
+#    preferredPrefix: NPO
+#    title: NPO Title
+#    description: NPO Description
+#    uri: https://raw.githubusercontent.com/SciCrunch/NIF-Ontology/neurons/ttl/npo.ttl
+#    base_uri:
+#      - 
+#    synonym_property:
+#      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+#    definition_property:
+#      - http://purl.obolibrary.org/obo/IAO_0000115
+#    ontology_purl: https://raw.githubusercontent.com/SciCrunch/NIF-Ontology/neurons/ttl/npo.ttl
+#    allow_dowload: False
+
+#  - id: 
+#    preferredPrefix: 
+#    title: 
+#    description: 
+#    uri: 
+#    base_uri:
+#      - 
+#    synonym_property:
+#      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+#    definition_property:
+#      - http://purl.obolibrary.org/obo/IAO_0000115
+#    ontology_purl:
+#    allow_dowload: False
