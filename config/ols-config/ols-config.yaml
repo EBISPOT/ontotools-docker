@@ -48,11 +48,11 @@ ontologies:
 
 #  - id: npo
 #    preferredPrefix: NPO
-#    title: NPO Title
+#    title: NanoParticle Ontology
 #    description: NPO Description
 #    uri: https://raw.githubusercontent.com/SciCrunch/NIF-Ontology/neurons/ttl/npo.ttl
 #    base_uri:
-#      - 
+#      - http://uri.neuinfo.org/nif/nifstd/
 #    synonym_property:
 #      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
 #    definition_property:
