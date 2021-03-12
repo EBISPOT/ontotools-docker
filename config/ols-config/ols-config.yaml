@@ -27,7 +27,7 @@ ontologies:
       - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
     definition_property:
       - http://purl.obolibrary.org/obo/IAO_0000115
-  #  reasoner: EL
+    reasoner: EL
   #  oboSlims: false
     ontology_purl: https://raw.githubusercontent.com/obophenotype/brain_data_standards_ontologies/master/bdscratch-full.owl
     allow_download: false
@@ -43,6 +43,7 @@ ontologies:
       - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
     definition_property:
       - http://purl.obolibrary.org/obo/IAO_0000115
+    reasoner: EL
     ontology_purl: https://raw.githubusercontent.com/obophenotype/cell-ontology/master/src/ontology/subsets/BDS_subset.owl
     allow_download: false
 
