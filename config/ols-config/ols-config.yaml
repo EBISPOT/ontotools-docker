@@ -27,6 +27,18 @@ ontologies:
       - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
     definition_property:
       - http://purl.obolibrary.org/obo/IAO_0000115
+    preferred_root:
+      - http://purl.obolibrary.org/obo/CL_0011005
+      - http://purl.obolibrary.org/obo/CL_0000679
+      # Add CL for Meis2
+      - http://purl.obolibrary.org/obo/CL_0002453
+      - http://purl.obolibrary.org/obo/CL_0002605
+      - http://purl.obolibrary.org/obo/CL_0000128
+      - http://purl.obolibrary.org/obo/CL_1001602
+      # Add CL for VLMC here
+      - http://purl.obolibrary.org/obo/CL_0000192 
+      - http://purl.obolibrary.org/obo/CL_2000043
+      - http://purl.obolibrary.org/obo/CL_0000129
     reasoner: EL
   #  oboSlims: false
     ontology_purl: https://raw.githubusercontent.com/obophenotype/brain_data_standards_ontologies/master/bdscratch-full.owl
@@ -43,6 +55,18 @@ ontologies:
       - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
     definition_property:
       - http://purl.obolibrary.org/obo/IAO_0000115
+    preferred_root:
+      - http://purl.obolibrary.org/obo/CL_0011005
+      - http://purl.obolibrary.org/obo/CL_0000679
+      # Add CL for Meis2
+      - http://purl.obolibrary.org/obo/CL_0002453
+      - http://purl.obolibrary.org/obo/CL_0002605
+      - http://purl.obolibrary.org/obo/CL_0000128
+      - http://purl.obolibrary.org/obo/CL_1001602
+      # Add CL for VLMC here
+      - http://purl.obolibrary.org/obo/CL_0000192 
+      - http://purl.obolibrary.org/obo/CL_2000043
+      - http://purl.obolibrary.org/obo/CL_0000129
     reasoner: EL
     ontology_purl: https://raw.githubusercontent.com/obophenotype/cell-ontology/master/src/ontology/subsets/BDS_subset.owl
     allow_download: false
