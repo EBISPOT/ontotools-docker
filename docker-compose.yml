@@ -19,7 +19,7 @@ services:
       command:
           - mongod
     ols-web:
-      image: ihcc/ols-web:latest
+      image: ebispot/ols-web:stable
       depends_on:
         - ols-solr
         - ols-mongo
@@ -41,7 +41,7 @@ services:
       ports:
       - 8080:8080
     oxo-solr:
-        image: ebispot/ols-solr:latest
+        image: ebispot/ols-solr:stable
         environment:
           - SOLR_HOME=/mnt/solr-config
         ports:
@@ -65,7 +65,7 @@ services:
           - ./oxo-neo4j-import:/var/lib/neo4j/import
           - oxo-neo4j-data:/data
     oxo-web:
-        image: ihcc/oxo-web:latest
+        image: ebispot/oxo-web:stable
         depends_on:
           - oxo-neo4j
           - oxo-solr
@@ -91,7 +91,7 @@ services:
         ports:
         - 8008:8080
     zooma-web:
-      image: ihcc/zooma-web:latest
+      image: ebispot/zooma:stable
       depends_on:
         - ols-web
       links:
