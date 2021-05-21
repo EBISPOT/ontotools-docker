@@ -33,13 +33,10 @@ OLSCONFIGDIR=$CONFIGDIR/ols-config/
 OXOCONFIGDIR=$CONFIGDIR/oxo-config/
 
 ############ Images ###########################
-EBISPOT_OXOLOADER=ebispot/oxo-loader:dev
-EBISPOT_OXOINDEXER=ebispot/oxo-indexer:dev
+EBISPOT_OXOLOADER=ebispot/oxo-loader:stable
+EBISPOT_OXOINDEXER=ebispot/oxo-indexer:stable
 EBISPOT_OLSCONFIGIMPORTER=ebispot/ols-config-importer:stable
 EBISPOT_OLSINDEXER=ebispot/ols-indexer:stable
-
-# Necessary until fixed.
-CUSTOM_OXOLOADER=matentzn/oxo-loader:0.0.1
 
 ######## Solr Services ########################
 OXO_SOLR=http://oxo-solr:8983/solr
@@ -118,7 +115,7 @@ echo "INFO: OXO - Extract mappings... ($SECONDS sec)"
 $DOCKERRUN -v "$OXOCONFIGDIR"/oxo-config.ini:/mnt/config.ini \
     -v "$NEO4J_IMPORT_DIR":/mnt/neo4j \
     --network "$NETWORK" \
-    -it $CUSTOM_OXOLOADER python /opt/oxo-loader/OlsMappingExtractor.py -c /mnt/config.ini -t /mnt/neo4j/terms.csv -m /mnt/neo4j/mappings.csv
+    -it $EBISPOT_OXOLOADER python /opt/oxo-loader/OlsMappingExtractor.py -c /mnt/config.ini -t /mnt/neo4j/terms.csv -m /mnt/neo4j/mappings.csv
 
 # 9. This process finally loads the mappings into Neo4j.
 echo "INFO: OXO - Load mappings... ($SECONDS sec)"

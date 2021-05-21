@@ -1,4 +1,4 @@
-# CUSTOM OntoTools Deployment Pipeline
+# OntoTools Deployment Pipeline
 
 The OLS/OXO/Zooma pipeline (just "pipeline" from now on) supports the following workflows:
 
@@ -22,10 +22,6 @@ The pipeline performs the following steps, which are encoded as as series of doc
 7. Extract the xref mappings from OLS and exports them into OxO format.
 8. Loads the mappings into OxO Neo4j
 9. Index mappings in solr
-
-## WARNING
-
-We are currently using the IHCC images instead of the official EBI ones.. We should use those, but last time I checked they were not up to date.
 
 ## Custom installations
 
