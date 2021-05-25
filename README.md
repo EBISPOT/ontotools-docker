@@ -23,6 +23,8 @@ Next, clone this repository:
 
     git clone https://github.com/EBISPOT/ontotools-docker.git
     cd ontotools-docker
+
+The configuration options for each of the OntoTools can be found in the `config` directory. For example, to change the OLS configuration, edit the files in `config/ols-config`.
    
 Finally, run the `redeploy.sh` script to deploy the OntoTools stack:
 
