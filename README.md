@@ -17,8 +17,8 @@ First, install Git, Docker and Docker compose. On an Ubuntu server:
 
 To use Docker without `sudo`, make sure your user is in the `docker` group. For example, if your username is `spot`:
 
-    sudo usermod -aG spot docker
-   
+    sudo usermod -aG docker spot
+  
 Next, clone this repository:
 
     git clone https://github.com/EBISPOT/ontotools-docker.git
