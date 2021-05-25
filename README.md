@@ -10,25 +10,25 @@ This repository contains the official Dockerised deployment pipeline for the EBI
 
 First, install Git, Docker and Docker compose. On an Ubuntu server:
 
-   apt install git docker.io
-   sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-   sudo chmod +x /usr/local/bin/docker-compose
-   sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+    apt install git docker.io
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+    sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 To use Docker without `sudo`, make sure your user is in the `docker` group. For example, if your username is `spot`:
 
-   sudo usermod -aG spot docker
+    sudo usermod -aG spot docker
    
 Next, clone this repository:
 
-   git clone https://github.com/EBISPOT/ontotools-docker-config.git
-   cd ontotools-docker-config
+    git clone https://github.com/EBISPOT/ontotools-docker-config.git
+    cd ontotools-docker-config
    
 Finally, run the `redeploy.sh` script to deploy the OntoTools stack:
 
-   ./redeploy.sh
+    ./redeploy.sh
 
-To change customisation options, edit the `docker-compose.yml` file. For example, to change the title of your OLS instance, edit the `ols.customisation.title` line.
+To change customisation options, edit the `docker-compose.yml` file and re-deploy. For example, to change the title of your OLS instance, edit the `ols.customisation.title` line.
 
 # Pipeline
 
