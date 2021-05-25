@@ -21,8 +21,8 @@ To use Docker without `sudo`, make sure your user is in the `docker` group. For 
    
 Next, clone this repository:
 
-    git clone https://github.com/EBISPOT/ontotools-docker-config.git
-    cd ontotools-docker-config
+    git clone https://github.com/EBISPOT/ontotools-docker.git
+    cd ontotools-docker
    
 Finally, run the `redeploy.sh` script to deploy the OntoTools stack:
 
