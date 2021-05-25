@@ -30,6 +30,12 @@ Finally, run the `redeploy.sh` script to deploy the OntoTools stack:
 
 To change customisation options, edit the `docker-compose.yml` file and re-deploy. For example, to change the title of your OLS instance, edit the `ols.customisation.title` line.
 
+To update the data in your OntoTools instances, run the `update-data.sh` script:
+
+    ./update-data.sh
+   
+
+
 # Pipeline
 
 The OLS/OXO/Zooma pipeline (just "pipeline" from now on) supports the following workflows:
