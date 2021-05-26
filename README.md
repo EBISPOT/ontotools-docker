@@ -29,14 +29,35 @@ The configuration options for each of the OntoTools can be found in the `config`
 Finally, run the `redeploy.sh` script to deploy the OntoTools stack:
 
     ./redeploy.sh
-
-To change customisation options, edit the `docker-compose.yml` file and re-deploy. For example, to change the title of your OLS instance, edit the `ols.customisation.title` line.
-
+    
 To update the data in your OntoTools instances, run the `update-data.sh` script:
 
     ./update-data.sh
    
+# Customisation
 
+It is possible to customise several branding options for the OntoTools by editing `docker-compose.yml`:
+
+## OLS
+
+* `ols.customisation.debrand` — If set to true, removes the EBI header and footer, documentation, and about page
+* `ols.customisation.title` — A custom title for your instance, e.g. "My OLS Instance"
+* `ols.customisation.short-title` — A shorter version of the custom title, e.g. "MYOLS"
+* `ols.customisation.description` — A description of the instance
+* `ols.customisation.org` — The organisation hosting your instance
+* `ols.customisation.hideGraphView` — Set to true to hide the graph view 
+* `ols.customisation.errorMessage` — Message to show on error pages
+* `ols.customisation.ontologyAlias` — A custom word or phrase to use instead of "Ontology", e.g. "Data Dictionary"
+* `ols.customisation.ontologyAliasPlural` — As `ontologyAlias` but plural, e.g. "Data Dictionaries"
+* `ols.customisation.oxoUrl` — The URL of an OxO instance to link to with a trailing slash e.g. `https://www.ebi.ac.uk/spot/oxo/
+
+## OxO
+
+* `oxo.customisation.debrand` — If set to true, removes the EBI header and footer, documentation, and about page
+* `oxo.customisation.title` — A custom title for your instance, e.g. "My OxO Instance"
+* `oxo.customisation.short-title` — A shorter version of the custom title, e.g. "MYOxO"
+* `oxo.customisation.description` — A description of the instance
+* `oxo.customisation.org` — The organisation hosting your instance
 
 # Pipeline
 
