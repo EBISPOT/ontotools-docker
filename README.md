@@ -1,10 +1,11 @@
 # OntoTools Deployment Pipeline
 
-This repository contains the official Dockerised deployment pipeline for the EBI OntoTools stack:
+The EBI Ontology Tools (consisting of OLS, OxO and Zooma) are available as docker containers. These containers are provided in the following 2 ways:
 
-* The Ontology Lookup Service (OLS)
-* The Ontology Xref Service (OxO)
-* ZOOMA
+* Standalone applications: This is for users who want to only run an instance of OLS (or OxO or Zooma), rather than the complete Ontology Tools stack.
+* Full Ontology Tools stack: This is for users who want to run the full Ontology Tools stack consisting of OLS, OxO and Zooma.
+
+This repository contains the official Dockerised deployment pipeline for the **Full Ontology Tools stack**. For instructions for the standalone applications, see the [OLS](http://github.com/EBISPOT/OLS), [OxO](http://github.com/EBISPOT/OXO), or [ZOOMA](http://github.com/EBISPOT/ZOOMA) repositories respectively.
 
 # Instructions
 
