@@ -46,6 +46,10 @@ It is possible to customise several branding options for the OntoTools by editin
 * `ols.customisation.short-title` — A shorter version of the custom title, e.g. "MYOLS"
 * `ols.customisation.description` — A description of the instance
 * `ols.customisation.org` — The organisation hosting your instance
+* `ols.customisation.web` — Url of the website for your organization.
+* `ols.customisation.twitter` — Handle to the Twitter account of your organisation.
+* `ols.customisation.issuesPage` — Url for the issue tracker for your organisation.
+* `ols.customisation.supportMail` — Email address where people can contact you.
 * `ols.customisation.hideGraphView` — Set to true to hide the graph view 
 * `ols.customisation.errorMessage` — Message to show on error pages
 * `ols.customisation.ontologyAlias` — A custom word or phrase to use instead of "Ontology", e.g. "Data Dictionary"
