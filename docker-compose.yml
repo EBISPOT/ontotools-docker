@@ -31,15 +31,16 @@ services:
         - spring.data.mongodb.host=ols-mongo
         - OLS_HOME=/mnt/
         - ols.customisation.debrand=true
-        - ols.customisation.logo=/custom/logo.png
-        - ols.customisation.title=OLS Instance
-        - ols.customisation.org=CUSTOM
-        - ols.customisation.short-title=CUSTOM-OLS
+        - ols.customisation.logo=https://raw.githubusercontent.com/jmcmurry/closed-illustrations/master/logos/monarch-logos/monarch-logo-white.png
+        - ols.customisation.title=Ontology Lookup Service
+        - ols.customisation.org=Monarch Initiative
+        - ols.customisation.short-title=MOLS
       volumes:
         - ./ols-neo4j-data:/mnt/neo4j
-        - ./config/ols-config/logo.png:/mnt/web-custom/logo.png
+        - ./config/ols-config/logo-monarch.png:/mnt/web-custom/logo.png
+        - ./monarch-ols-owls:/mnt/ontologies
       ports:
-      - 8080:8080
+      - 80:8080
     oxo-solr:
         image: ebispot/ols-solr:stable
         environment:
