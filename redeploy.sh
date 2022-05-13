@@ -81,6 +81,7 @@ $DOCKERRUN --network "$NETWORK" -v "$OLSCONFIGDIR":/config \
 # Tried this because of some irrelevant noise in the DEBUG level log, but failed. -v $OLSCONFIGDIR/simplelogger.properties:/simplelogger.properties -e JAVA_OPTS=-Dlog4j.configuration=file:/simplelogger.properties
 echo "INFO: OLS - Indexing OLS... ($SECONDS sec)"
 $DOCKERRUN --network "$NETWORK" -v "$OLS_NEO4J_DATA":/mnt/neo4j -v "$OLS_NEO4J_DOWNLOADS":/mnt/downloads \
+           -v $VOLUMEROOT/monarch-ols-owls:/mnt/ontologies \
            -e spring.data.mongodb.host=ols-mongo \
            -e spring.data.solr.host="$OLS_SOLR" "$EBISPOT_OLSINDEXER"
 
