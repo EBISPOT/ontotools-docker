@@ -38,7 +38,7 @@ services:
       volumes:
         - ./ols-neo4j-data:/mnt/neo4j
         - ./config/ols-config/logo-monarch.png:/mnt/web-custom/logo.png
-        - ./monarch-ols-owls:/mnt/ontologies
+        - ./ontologies:/mnt/ontologies
       ports:
       - 80:8080
     oxo-solr:

@@ -56,7 +56,7 @@ $DOCKERRUN --network "$NETWORK" -v "$OLSCONFIGDIR":/config \
 
 echo "INFO: OLS - Indexing OLS... ($SECONDS sec)"
 $DOCKERRUN --network "$NETWORK" -v "$OLS_NEO4J_DATA":/mnt/neo4j -v "$OLS_NEO4J_DOWNLOADS":/mnt/downloads \
-           -v $VOLUMEROOT/monarch-ols-owls:/mnt/ontologies \
+           -v $VOLUMEROOT/ontologies:/mnt/ontologies \
            -e spring.data.mongodb.host=ols-mongo \
            -e spring.data.solr.host="$OLS_SOLR" "$EBISPOT_OLSINDEXER"
 
