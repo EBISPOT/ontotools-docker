@@ -49,19 +49,6 @@ ontologies:
   #     - http://purl.obolibrary.org/obo/IAO_0000115
   #   reasoner: EL
   #   ontology_purl : file:/mnt/ontologies/mondo_patterns.owl
-  - id: geno
-    preferredPrefix: GENO
-    uri: http://purl.obolibrary.org/obo/geno.owl
-    base_uri:
-      - http://purl.obolibrary.org/obo/GENO_
-    synonym_property:
-      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
-    definition_property:
-      - http://purl.obolibrary.org/obo/IAO_0000115
-#    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
-    reasoner: EL
-    oboSlims: false
-    ontology_purl : file:/mnt/ontologies/geno.owl
   - id: hp
     preferredPrefix: HP
     title: Human Phenotype Ontology (Development Snapshot)
@@ -140,3 +127,25 @@ ontologies:
     reasoner: EL
     oboSlims: false
     ontology_purl : file:/mnt/ontologies/uberon-human-view.owl
+  - id: vbo
+    preferredPrefix: VBO
+    description: >
+      Vertebrate Breed Ontology is an ontology created to serve as a single computable resource for vertebrate breed names.
+    title: Vertebrate Breed Ontology
+    uri: https://raw.githubusercontent.com/monarch-initiative/vertebrate-breed-ontology/master/vbo.owl
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+    reasoner: EL
+    oboSlims: false
+    ontology_purl : file:/mnt/ontologies/vbo.owl
+  - id: phenio
+    preferredPrefix: PHENIO
+    description: >
+      An ontology for accessing and comparing knowledge concerning phenotypes across species and genetic backgrounds.
+    title: Phenomics Integrated Ontology
+    uri: https://github.com/monarch-initiative/phenio/releases/latest/download/phenio.owl
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+    reasoner: EL
+    oboSlims: false
+    ontology_purl : file:/mnt/ontologies/vbo
