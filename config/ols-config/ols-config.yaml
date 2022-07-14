@@ -148,4 +148,4 @@ ontologies:
       - http://purl.obolibrary.org/obo/IAO_0000115
     reasoner: EL
     oboSlims: false
-    ontology_purl : file:/mnt/ontologies/vbo
+    ontology_purl : file:/mnt/ontologies/phenio.owl
