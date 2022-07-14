@@ -78,6 +78,15 @@ HUMAN_VIEW=http://purl.obolibrary.org/obo/uberon/subsets/human-view.owl
 ontologies/uberon-human-view.owl:
 	$(ROBOT) convert -I $(HUMAN_VIEW) -o $@.tmp.owl && mv $@.tmp.owl $@
 
+PHENIO_URL=https://github.com/monarch-initiative/phenio/releases/latest/download/phenio.owl
+
+ontologies/phenio.owl:
+	$(ROBOT) convert -I $(PHENIO_URL) -o $@.tmp.owl && mv $@.tmp.owl $@
+
+VBO_URL=https://raw.githubusercontent.com/monarch-initiative/vertebrate-breed-ontology/master/vbo.owl
+
+ontologies/vbo.owl:
+	$(ROBOT) convert -I $(VBO_URL) -o $@.tmp.owl && mv $@.tmp.owl $@
 
 #ontologies/monarch.owl:
 #	$(ROBOT) convert -I https://ci.monarchinitiative.org/job/monarch-owl-pipeline/lastSuccessfulBuild/artifact/src/ontology/mo.owl -o $@.tmp.owl && mv $@.tmp.owl $@
