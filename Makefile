@@ -1,30 +1,14 @@
 URIBASE = http://purl.obolibrary.org/obo
-# ONTS = upheno2 geno upheno_patterns hp chr mondo_patterns uberon-human-view
-ONTS = geno upheno_patterns hp chr mondo_patterns uberon-human-view
+
+# the below onts were collected from ols-config.yaml
+# (phenio is commented out until we produce a version of the file without cycles)
+ONTS = upheno2 geno upheno_patterns hp chr mondo mondo_patterns mondo-harrisons-view uberon-human-view vbo # phenio
+
 #monarch
 ONTFILES = $(foreach n, $(ONTS), ontologies/$(n).owl)
 VERSION = "0.0.3" 
 IM=monarchinitiative/monarch-ols
 OLSCONFIG=/opt/ols/ols-config.yaml
-
-docker-build:
-	@docker build -t $(IM):$(VERSION) . \
-	&& docker tag $(IM):$(VERSION) $(IM):latest
-	
-docker-build-no-cache:
-	@docker build --no-cache -t $(IM):$(VERSION) . \
-	&& docker tag $(IM):$(VERSION) $(IM):latest
-
-docker-publish: docker-build
-	@docker push $(IM):$(VERSION) \
-	&& docker push $(IM):latest
-	
-docker-publish-no-build:
-	@docker push $(IM):$(VERSION) \
-	&& docker push $(IM):latest
-	
-docker-run:
-	@docker run -p 8080:8080 -t $(IM):$(VERSION)
 
 # Download and pre-process the ontologies
 clean:
