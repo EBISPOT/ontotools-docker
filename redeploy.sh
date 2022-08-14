@@ -47,6 +47,17 @@ OLS_SOLR=http://ols-solr:8983/solr
 ############ Pipeline ########################
 ##############################################
 
+# pre-step: run 'make ontologies' in an ephemeral container with the necessary tooling (i.e., robot) included
+ROBOTVERSION=${ROBOTVERSION:-v1.8.1}
+${DOCKERCMD} run \
+  -v $PWD:/work -w /work \
+  -e ROBOTVERSION=${ROBOTVERSION} \
+  -e ROBOT_JAR=https://github.com/ontodev/robot/releases/download/$ROBOTVERSION/robot.jar \
+  -e ROBOT=/tools/robot \
+  -e ROBOT_JAVA_ARGS='-Xmx8G' \
+  --rm -ti \
+  obolibrary/odkfull make ontologies
+
 # We decided to expose the neo4j import directory for OxO as a local directory, because it is very useful for debugging 
 # (checking the generated mapping tables etc). All other volumes are created and managed by docker-compose
 echo "WARNING: Removing all existing indexed data"
@@ -81,6 +92,7 @@ $DOCKERRUN --network "$NETWORK" -v "$OLSCONFIGDIR":/config \
 # Tried this because of some irrelevant noise in the DEBUG level log, but failed. -v $OLSCONFIGDIR/simplelogger.properties:/simplelogger.properties -e JAVA_OPTS=-Dlog4j.configuration=file:/simplelogger.properties
 echo "INFO: OLS - Indexing OLS... ($SECONDS sec)"
 $DOCKERRUN --network "$NETWORK" -v "$OLS_NEO4J_DATA":/mnt/neo4j -v "$OLS_NEO4J_DOWNLOADS":/mnt/downloads \
+           -v $VOLUMEROOT/ontologies:/mnt/ontologies \
            -e spring.data.mongodb.host=ols-mongo \
            -e spring.data.solr.host="$OLS_SOLR" "$EBISPOT_OLSINDEXER"
 

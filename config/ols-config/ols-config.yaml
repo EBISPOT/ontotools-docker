@@ -1,14 +1,62 @@
-'@context': null
+
+"@context":
+
 ontologies:
 
-  - id: cob
-    preferredPrefix: COB
-    title: Core Ontology for Biology and Biomedicine
+  - id: upheno2
+    preferredPrefix: UPHENO
+    title: Unified Phenotype Ontology (uPheno2)
     description: >
-      The Core Ontology for Biology and Biomedicine (COB) brings together key terms from a wide range of OBO projects into a single, small ontology. The goal is to improve interoperabilty and reuse across the OBO community through better coordination of key terms.
-    uri: http://purl.obolibrary.org/obo/cob.owl
+      Cross-species integrated phenotype ontology
+    uri: https://ci.monarchinitiative.org/view/pipelines/job/upheno2/lastSuccessfulBuild/artifact/src/curation/upheno-release/all/upheno_all_with_relations.owl
     base_uri:
-      - http://purl.obolibrary.org/obo/COB_
+      - http://purl.obolibrary.org/obo/UPHENO_
+    synonym_property:
+      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    hierarchical_property:
+      - http://purl.obolibrary.org/obo/BFO_0000050
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+#    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
+    reasoner: EL
+    oboSlims: false
+    ontology_purl : file:/mnt/ontologies/upheno2.owl
+  - id: upheno_patterns
+    preferredPrefix: UPHENO_PATTERN
+    title: Unified Phenotype Ontology Pattern Ontology
+    description: >
+      Ontology that contains all the currently defined uPheno patterns
+    uri: http://purl.obolibrary.org/obo/upheno/patterns/pattern.owl
+    base_uri:
+      - http://purl.obolibrary.org/obo/UPHENO_PATTERN_
+    synonym_property:
+      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+    reasoner: EL
+    ontology_purl : file:/mnt/ontologies/upheno_patterns.owl
+  # - id: mondo_patterns
+  #   preferredPrefix: MONDO_PATTERN
+  #   title: Mondo Disease Ontology Pattern Ontology
+  #   description: >
+  #     Ontology that contains all the currently defined Mondo patterns
+  #   uri: https://raw.githubusercontent.com/monarch-initiative/mondo/master/src/patterns/pattern.owl
+  #   base_uri:
+  #     - http://purl.obolibrary.org/obo/MONDO_PATTERN_
+  #   synonym_property:
+  #     - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+  #   definition_property:
+  #     - http://purl.obolibrary.org/obo/IAO_0000115
+  #   reasoner: EL
+  #   ontology_purl : file:/mnt/ontologies/mondo_patterns.owl
+  - id: hp
+    preferredPrefix: HP
+    title: Human Phenotype Ontology (Development Snapshot)
+    uri: http://purl.obolibrary.org/obo/hp.owl
+    description: >
+      Inofficial development snapshot of the Human Phenotype Ontologies. Contact Peter Robinson.
+    base_uri:
+      - http://purl.obolibrary.org/obo/HP_
     synonym_property:
       - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
     definition_property:
@@ -16,16 +64,15 @@ ontologies:
 #    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
     reasoner: EL
     oboSlims: false
-    ontology_purl: http://purl.obolibrary.org/obo/cob.owl
-    allow_download: false
-  - id: test
-    preferredPrefix: TEST
-    title: Test OLS Load Ontology
+    ontology_purl : file:/mnt/ontologies/hp.owl
+  - id: mondo
+    preferredPrefix: MONDO
+    title: Mondo Disease Ontology (Development Snapshot)
+    uri: http://purl.obolibrary.org/obo/mondo.owl
     description: >
-      Test ontology for the purpose of loading a local file instead of a URL.
-    uri: http://purl.obolibrary.org/foo/bar.owl
+      Inofficial development snapshot of the Mondo Disease Ontology. Contact Nicole Vasilevsky.
     base_uri:
-      - http://purl.obolibrary.org/foo/TEST_
+      - http://purl.obolibrary.org/obo/MONDO_
     synonym_property:
       - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
     definition_property:
@@ -33,5 +80,72 @@ ontologies:
 #    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
     reasoner: EL
     oboSlims: false
-    ontology_purl: file:/mnt/downloads/test.owl
-    allow_download: false
+    ontology_purl : file:/mnt/ontologies/mondo.owl
+  - id: mondoharrisons
+    preferredPrefix: MONDO_HARRISONS
+    title: Mondo Disease Ontology - Harrisons View (Developmental Snapshot)
+    uri: http://purl.obolibrary.org/obo/mondo/mondo-harrisons-view.owl
+    description: >
+      An experimental view of Mondo, showing the ontology with a different upper level organisation.
+      Basically, the top two levels of the ontology are modelled after the Harrisons Textbook,
+      and everything underneath follows the usual Mondo structure. Please do not use - this is only
+      a proof of concept. Contact Nicole Vasilevsky.
+    base_uri:
+      - http://purl.obolibrary.org/obo/MONDO_
+    synonym_property:
+      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+#    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
+    reasoner: EL
+    oboSlims: false
+    ontology_purl : file:/mnt/ontologies/mondo-harrisons-view.owl
+  - id: chr
+    preferredPrefix: CHR
+    title: Monochrom Ontology (Development Snapshot)
+    uri: https://raw.githubusercontent.com/monarch-initiative/monochrom/master/chr.owl
+    description: >
+      Inofficial development snapshot of the Human Phenotype Ontologies. https://github.com/monarch-initiative/monochrom/issues
+    base_uri:
+      - http://purl.obolibrary.org/obo/HP_
+    synonym_property:
+      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+#    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
+    reasoner: EL
+    oboSlims: false
+    ontology_purl : file:/mnt/ontologies/chr.owl
+  - id: uberon_human_view
+    preferredPrefix: UBERON_HUMAN_VIEW
+    description: >
+      Human View Subset of Uberon
+    title: Uberon (Human View)
+    uri: http://purl.obolibrary.org/obo/uberon/subsets/human-view.owl
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+    reasoner: EL
+    oboSlims: false
+    ontology_purl : file:/mnt/ontologies/uberon-human-view.owl
+  - id: vbo
+    preferredPrefix: VBO
+    description: >
+      Vertebrate Breed Ontology is an ontology created to serve as a single computable resource for vertebrate breed names.
+    title: Vertebrate Breed Ontology
+    uri: https://raw.githubusercontent.com/monarch-initiative/vertebrate-breed-ontology/master/vbo.owl
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+    reasoner: EL
+    oboSlims: false
+    ontology_purl : file:/mnt/ontologies/vbo.owl
+  # - id: phenio
+  #   preferredPrefix: PHENIO
+  #   description: >
+  #     An ontology for accessing and comparing knowledge concerning phenotypes across species and genetic backgrounds.
+  #   title: Phenomics Integrated Ontology
+  #   uri: https://github.com/monarch-initiative/phenio/releases/latest/download/phenio.owl
+  #   definition_property:
+  #     - http://purl.obolibrary.org/obo/IAO_0000115
+  #   reasoner: EL
+  #   oboSlims: false
+  #   ontology_purl : file:/mnt/ontologies/phenio.owl
