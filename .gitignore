@@ -6,3 +6,4 @@
 /zooma-data
 .DS_Store
 scripts/.ipynb_checkpoints
+/ontologies/*
