@@ -86,3 +86,8 @@ The pipeline performs the following steps, which are encoded as as series of doc
 ## Custom installations
 
 We have started to maintain a [list of known custom OLS installations](docs/custom_ontotools_users.md). Please create an issue if you want your installation to be listed as well.
+
+
+### Infrastructure model
+
+![Infrastructure model](.infragenie/infrastructure_model.png)
