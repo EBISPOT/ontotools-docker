@@ -2,7 +2,7 @@ URIBASE = http://purl.obolibrary.org/obo
 
 # the below onts were collected from ols-config.yaml
 # (phenio is commented out until we produce a version of the file without cycles)
-ONTS = upheno2 geno upheno_patterns hp chr mondo mondo_patterns mondo-harrisons-view uberon-human-view vbo # phenio
+ONTS = upheno2 geno upheno_patterns hp chr mondo mondo_patterns mondo-harrisons-view uberon-human-view phenio
 
 #monarch
 ONTFILES = $(foreach n, $(ONTS), ontologies/$(n).owl)
