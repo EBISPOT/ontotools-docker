@@ -127,25 +127,13 @@ ontologies:
     reasoner: EL
     oboSlims: false
     ontology_purl : file:/mnt/ontologies/uberon-human-view.owl
-  - id: vbo
-    preferredPrefix: VBO
+  - id: phenio
+    preferredPrefix: PHENIO
     description: >
-      Vertebrate Breed Ontology is an ontology created to serve as a single computable resource for vertebrate breed names.
-    title: Vertebrate Breed Ontology
-    uri: https://raw.githubusercontent.com/monarch-initiative/vertebrate-breed-ontology/master/vbo.owl
+      An ontology for accessing and comparing knowledge concerning phenotypes across species and genetic backgrounds.
+    title: Phenomics Integrated Ontology
+    uri: https://github.com/monarch-initiative/phenio/releases/latest/download/phenio.owl
     definition_property:
       - http://purl.obolibrary.org/obo/IAO_0000115
-    reasoner: EL
     oboSlims: false
-    ontology_purl : file:/mnt/ontologies/vbo.owl
-  # - id: phenio
-  #   preferredPrefix: PHENIO
-  #   description: >
-  #     An ontology for accessing and comparing knowledge concerning phenotypes across species and genetic backgrounds.
-  #   title: Phenomics Integrated Ontology
-  #   uri: https://github.com/monarch-initiative/phenio/releases/latest/download/phenio.owl
-  #   definition_property:
-  #     - http://purl.obolibrary.org/obo/IAO_0000115
-  #   reasoner: EL
-  #   oboSlims: false
-  #   ontology_purl : file:/mnt/ontologies/phenio.owl
+    ontology_purl : file:/mnt/ontologies/phenio.owl
