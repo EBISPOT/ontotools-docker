@@ -34,21 +34,21 @@ ontologies:
     definition_property:
       - http://purl.obolibrary.org/obo/IAO_0000115
     reasoner: EL
-    ontology_purl : file:/mnt/ontologies/upheno_patterns.owl
-  # - id: mondo_patterns
-  #   preferredPrefix: MONDO_PATTERN
-  #   title: Mondo Disease Ontology Pattern Ontology
-  #   description: >
-  #     Ontology that contains all the currently defined Mondo patterns
-  #   uri: https://raw.githubusercontent.com/monarch-initiative/mondo/master/src/patterns/pattern.owl
-  #   base_uri:
-  #     - http://purl.obolibrary.org/obo/MONDO_PATTERN_
-  #   synonym_property:
-  #     - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
-  #   definition_property:
-  #     - http://purl.obolibrary.org/obo/IAO_0000115
-  #   reasoner: EL
-  #   ontology_purl : file:/mnt/ontologies/mondo_patterns.owl
+    ontology_purl : file:/mnt/ontologies/upheno-patterns.owl
+  - id: mondo_patterns
+    preferredPrefix: MONDO_PATTERN
+    title: Mondo Disease Ontology Pattern Ontology
+    description: >
+      Ontology that contains all the currently defined Mondo patterns
+    uri: https://raw.githubusercontent.com/monarch-initiative/mondo/master/src/patterns/pattern.owl
+    base_uri:
+      - http://purl.obolibrary.org/obo/mondo/patterns/
+    synonym_property:
+      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+    reasoner: EL
+    ontology_purl : file:/mnt/ontologies/mondo-patterns.owl
   - id: hp
     preferredPrefix: HP
     title: Human Phenotype Ontology (Development Snapshot)
@@ -64,7 +64,22 @@ ontologies:
 #    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
     reasoner: EL
     oboSlims: false
-    ontology_purl : file:/mnt/ontologies/hp.owl
+    ontology_purl : file:/mnt/ontologies/hp-edit.owl
+  - id: mondo_rare
+    preferredPrefix: MONDO
+    title: Mondo Disease Ontology (Rare Disease Subset)
+    uri: http://purl.obolibrary.org/obo/mondo/subsets/mondo-rare.owl
+    description: >
+      The Mondo Rare Disease Subset.
+    base_uri:
+      - http://purl.obolibrary.org/obo/MONDO_
+    synonym_property:
+      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+    reasoner: EL
+    oboSlims: false
+    ontology_purl : file:/mnt/ontologies/mondo-rare.owl
   - id: mondo
     preferredPrefix: MONDO
     title: Mondo Disease Ontology (Development Snapshot)
@@ -77,29 +92,9 @@ ontologies:
       - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
     definition_property:
       - http://purl.obolibrary.org/obo/IAO_0000115
-#    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
     reasoner: EL
     oboSlims: false
-    ontology_purl : file:/mnt/ontologies/mondo.owl
-  - id: mondoharrisons
-    preferredPrefix: MONDO_HARRISONS
-    title: Mondo Disease Ontology - Harrisons View (Developmental Snapshot)
-    uri: http://purl.obolibrary.org/obo/mondo/mondo-harrisons-view.owl
-    description: >
-      An experimental view of Mondo, showing the ontology with a different upper level organisation.
-      Basically, the top two levels of the ontology are modelled after the Harrisons Textbook,
-      and everything underneath follows the usual Mondo structure. Please do not use - this is only
-      a proof of concept. Contact Nicole Vasilevsky.
-    base_uri:
-      - http://purl.obolibrary.org/obo/MONDO_
-    synonym_property:
-      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
-    definition_property:
-      - http://purl.obolibrary.org/obo/IAO_0000115
-#    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
-    reasoner: EL
-    oboSlims: false
-    ontology_purl : file:/mnt/ontologies/mondo-harrisons-view.owl
+    ontology_purl : file:/mnt/ontologies/mondo-edit.owl
   - id: chr
     preferredPrefix: CHR
     title: Monochrom Ontology (Development Snapshot)
@@ -116,24 +111,14 @@ ontologies:
     reasoner: EL
     oboSlims: false
     ontology_purl : file:/mnt/ontologies/chr.owl
-  - id: uberon_human_view
-    preferredPrefix: UBERON_HUMAN_VIEW
-    description: >
-      Human View Subset of Uberon
-    title: Uberon (Human View)
-    uri: http://purl.obolibrary.org/obo/uberon/subsets/human-view.owl
-    definition_property:
-      - http://purl.obolibrary.org/obo/IAO_0000115
-    reasoner: EL
-    oboSlims: false
-    ontology_purl : file:/mnt/ontologies/uberon-human-view.owl
-  - id: phenio
-    preferredPrefix: PHENIO
-    description: >
-      An ontology for accessing and comparing knowledge concerning phenotypes across species and genetic backgrounds.
-    title: Phenomics Integrated Ontology
-    uri: https://github.com/monarch-initiative/phenio/releases/latest/download/phenio.owl
-    definition_property:
-      - http://purl.obolibrary.org/obo/IAO_0000115
-    oboSlims: false
-    ontology_purl : file:/mnt/ontologies/phenio.owl
+# - id: uberon_human_view
+#   preferredPrefix: UBERON_HUMAN_VIEW
+#   description: >
+#     Human View Subset of Uberon
+#   title: Uberon (Human View)
+#   uri: http://purl.obolibrary.org/obo/uberon/subsets/human-view.owl
+#   definition_property:
+#     - http://purl.obolibrary.org/obo/IAO_0000115
+#   reasoner: EL
+#   oboSlims: false
+#   ontology_purl : file:/mnt/ontologies/uberon-human-view.owl
