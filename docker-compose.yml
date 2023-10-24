@@ -10,6 +10,7 @@ services:
           - ols-solr-data:/var/solr
           - ./config/ols-solr5-config:/mnt/solr-config
         command: ["-Dsolr.solr.home=/mnt/solr-config", "-Dsolr.data.dir=/var/solr", "-Dsolr.log=/mnt/solr-data/logs", "-f"]
+        restart: unless-stopped
     ols-mongo:
       image: mongo:3.2.9
       ports:
@@ -18,6 +19,7 @@ services:
           - ols-mongo-data:/data/db
       command:
           - mongod
+      restart: unless-stopped
     ols-web:
       image: ebispot/ols-web:stable
       depends_on:
@@ -39,8 +41,9 @@ services:
         - ./ols-neo4j-data:/mnt/neo4j
         - ./config/ols-config/logo-monarch.png:/mnt/web-custom/logo.png
         - ./ontologies:/mnt/ontologies
+      restart: unless-stopped
       ports:
-      - 80:8080
+      - 8080:8080
     oxo-solr:
         image: ebispot/ols-solr:stable
         environment:
@@ -107,6 +110,7 @@ services:
         - ./zooma-data:/root/.zooma/data
       ports:
       - 8009:8080
+
 volumes:
     ols-solr-data:
     ols-mongo-data:
@@ -114,6 +118,7 @@ volumes:
     oxo-mongo-data:
     oxo-solr-data:
     oxo-hsqldb:
+
 networks:
   default:
     name: customolsnet
