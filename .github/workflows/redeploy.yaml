@@ -9,7 +9,7 @@ on:
 
 env:
   TARGET_MACHINE: "ontotools-stack"
-  TARGET_ZONE: "${TARGET_ZONE}"
+  TARGET_ZONE: "us-central1-a"
   MACHINE_TYPE_BUILDING: "e2-highmem-4"
   MACHINE_TYPE_SERVING: "e2-medium"
 
