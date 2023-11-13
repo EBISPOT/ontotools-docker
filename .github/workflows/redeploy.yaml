@@ -37,9 +37,7 @@ jobs:
       - name: "Git pull master and launch redeploy.sh"
         run: |
           gcloud compute ssh --zone ${TARGET_ZONE} ${TARGET_USER}@${TARGET_MACHINE} -- \
-            cd /var/checkouts/ontotools-docker && \
-            git pull && \
-            time ( sudo ./redeploy.sh )
+            /var/checkouts/ontotools-docker/pull_and_redeploy.sh
 
       - name: "Size down OLS machine for serving"
         if: always() # run even if the prior tasks fail, as we don't want it stuck as a large instance
