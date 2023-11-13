@@ -1,0 +1,47 @@
+name: Redeploy OLS pipeline
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - redeploy-gh-action
+
+env:
+  TARGET_MACHINE: "ontotools-stack"
+  TARGET_ZONE: "${TARGET_ZONE}"
+  MACHINE_TYPE_BUILDING: "e2-highmem-4"
+  MACHINE_TYPE_SERVING: "e2-medium"
+
+jobs:
+  update-gcp-services:
+    runs-on: ubuntu-latest
+    steps:
+      - id: "auth"
+        uses: "google-github-actions/auth@v1"
+        with:
+          credentials_json: "${{ secrets.JSON_GCLOUD_SERVICE_ACCOUNT_JSON }}"
+
+      - name: "Set up Cloud SDK"
+        uses: "google-github-actions/setup-gcloud@v1"
+        with:
+          version: ">= 447.0.0"
+
+      - name: "Size up OLS machine for pipeline run"
+        run: |
+          gcloud compute instances stop --zone ${TARGET_ZONE} ${TARGET_MACHINE} && \
+          gcloud compute instances set-machine-type --zone ${TARGET_ZONE} ${TARGET_MACHINE} --machine-type=${MACHINE_TYPE_BUILDING}
+          gcloud compute instances start --zone ${TARGET_ZONE} ${TARGET_MACHINE}
+
+      - name: "Git pull master and launch redeploy.sh"
+        run: |
+          gcloud compute ssh --zone ${TARGET_ZONE} ${TARGET_MACHINE} -- \
+            cd /var/checkouts/ontotools-docker && \
+            sudo redeploy.sh
+
+      - name: "Size down OLS machine for serving"
+        if: always() # run even if the prior tasks fail, as we don't want it stuck as a large instance
+        run: |
+          gcloud compute instances stop --zone ${TARGET_ZONE} ${TARGET_MACHINE} && \
+          gcloud compute instances set-machine-type --zone ${TARGET_ZONE} ${TARGET_MACHINE} --machine-type=${MACHINE_TYPE_SERVING}
+          gcloud compute instances start --zone ${TARGET_ZONE} ${TARGET_MACHINE}
