@@ -26,6 +26,7 @@ jobs:
       - name: "Set up Cloud SDK"
         uses: "google-github-actions/setup-gcloud@v1"
         with:
+        
           version: ">= 447.0.0"
 
       - name: "Size up OLS machine for pipeline run"
@@ -36,7 +37,7 @@ jobs:
 
       - name: "Git pull master and launch redeploy.sh"
         run: |
-          gcloud compute ssh --zone ${TARGET_ZONE} ${TARGET_USER}@${TARGET_MACHINE} -- \
+          gcloud compute ssh --zone ${TARGET_ZONE} ${TARGET_USER}@${TARGET_MACHINE} -- -t \
             /var/checkouts/ontotools-docker/pull_and_redeploy.sh
 
       - name: "Size down OLS machine for serving"
