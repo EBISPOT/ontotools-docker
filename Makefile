@@ -3,7 +3,7 @@ URIBASE = http://purl.obolibrary.org/obo
 ROBOT=robot
 # the below onts were collected from ols-config.yaml
 # (phenio is commented out until we produce a version of the file without cycles)
-ONTS = upheno2 upheno-patterns hp-edit chr mondo-edit mondo-rare mondo-patterns
+ONTS = upheno2 upheno-patterns hp-edit chr mondo-edit mondo-rare mondo-patterns hp-branch-lymphoma.owl
 
 #monarch
 ONTFILES = $(foreach n, $(ONTS), ontologies/$(n).owl)
@@ -17,10 +17,11 @@ clean:
 
 ontologies: $(ONTFILES)
 
-ontologies/mondo-issue-%.owl:
-	mkdir -p github && mkdir -p github/mondo-issue-$* && rm -rf github/mondo-issue-$*/*
-	cd github/mondo-issue-$* && git clone --depth 1 https://github.com/monarch-initiative/mondo.git -b issue-$* 
-	$(ROBOT) merge -i github/mondo-issue-$*/mondo/src/ontology/mondo-edit.obo --catalog github/mondo-issue-$*/mondo/src/ontology/catalog-v001.xml remove --select ontology reason --reasoner ELK -o $@.tmp.owl && mv $@.tmp.owl $@
+ontologies/mondo-branch-%.owl:
+	mkdir -p github && mkdir -p github/mondo-branch-$* && rm -rf github/mondo-branch-$*/*
+	cd github/mondo-branch-$* && git clone --depth 1 https://github.com/monarch-initiative/mondo.git -b $* 
+	cd github/mondo-branch-$*/mondo/src/ontology/ && make IMP=false PAT=false MIR=false mondo.owl
+	cp github/mondo-branch-$*/mondo/src/ontology/mondo.owl $@
 
 ontologies/mondo-edit.owl:
 	mkdir -p github && mkdir -p github/main && rm -rf github/main/*
@@ -28,8 +29,11 @@ ontologies/mondo-edit.owl:
 	cd github/main/mondo/src/ontology/ && make IMP=false PAT=false MIR=false mondo.owl
 	cp github/main/mondo/src/ontology/mondo.owl $@
 
-ontologies/%.owl: 
-	$(ROBOT) convert -I $(URIBASE)/$*.owl -o $@.tmp.owl && mv $@.tmp.owl $@
+ontologies/hp-branch-%.owl:
+	mkdir -p github && mkdir -p github/hp-branch-$* && rm -rf github/hp-branch-$*/*
+	cd github/hp-branch-$* && git clone --depth 1 https://github.com/obophenotype/human-phenotype-ontology.git -b $* 
+	cd github/hp-branch-$*/human-phenotype-ontology/src/ontology/ && make IMP=false PAT=false MIR=false hp.owl
+	cp github/hp-branch-$*/human-phenotype-ontology/src/ontology/hp.owl $@
 
 ontologies/hp-edit.owl:
 	mkdir -p github && mkdir -p github/main && rm -rf github/main/*
