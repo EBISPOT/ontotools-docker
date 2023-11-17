@@ -8,3 +8,4 @@
 scripts/.ipynb_checkpoints
 /ontologies/*
 /github/*
+/deploy_logs/*

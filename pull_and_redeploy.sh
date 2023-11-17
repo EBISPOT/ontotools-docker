@@ -12,8 +12,10 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 CUR_DATE=$( date +%Y%m%d_%H%M%S )
 
-STDOUT_LOGFILE="${SCRIPT_DIR}/deploy_${CUR_DATE}_stdout.log"
-STDERR_LOGFILE="${SCRIPT_DIR}/deploy_${CUR_DATE}_stderr.log"
+mkdir -p ${SCRIPT_DIR}/deploy_logs/
+
+STDOUT_LOGFILE="${SCRIPT_DIR}/deploy_logs/deploy_${CUR_DATE}_stdout.log"
+STDERR_LOGFILE="${SCRIPT_DIR}/deploy_logs/deploy_${CUR_DATE}_stderr.log"
 
 cd "${SCRIPT_DIR}" && \
 git pull && \
@@ -23,6 +25,10 @@ time (
     echo " - stderr: ${STDERR_LOGFILE}"
 
     sudo ./redeploy.sh > ${STDOUT_LOGFILE} 2> ${STDERR_LOGFILE}
+    EXIT_CODE=$?
 
     echo "...done!"
+
+    # propagate the exit code from redeploy.sh
+    exit ${EXIT_CODE}
 )
