@@ -54,7 +54,7 @@ ontologies:
     title: Human Phenotype Ontology (Development Snapshot)
     uri: http://purl.obolibrary.org/obo/hp.owl
     description: >
-      Inofficial development snapshot of the Human Phenotype Ontologies. Contact Peter Robinson.
+      Unofficial development snapshot of the Human Phenotype Ontologies. Contact Peter Robinson.
     base_uri:
       - http://purl.obolibrary.org/obo/HP_
     synonym_property:
@@ -64,7 +64,7 @@ ontologies:
 #    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
     oboSlims: false
     ontology_purl : file:/mnt/ontologies/hp-edit.owl
-  - id: hp
+  - id: hplymph
     preferredPrefix: HP_LYMPHOMA
     title: Human Phenotype Ontology (Lymphoma Branch)
     uri: http://purl.obolibrary.org/obo/hp.owl
@@ -99,7 +99,7 @@ ontologies:
     title: Mondo Disease Ontology (Development Snapshot)
     uri: http://purl.obolibrary.org/obo/mondo.owl
     description: >
-      Inofficial development snapshot of the Mondo Disease Ontology. Contact Nicole Vasilevsky.
+      Unofficial development snapshot of the Mondo Disease Ontology. Contact Sabrina Toro.
     base_uri:
       - http://purl.obolibrary.org/obo/MONDO_
     synonym_property:
@@ -114,7 +114,7 @@ ontologies:
     title: Monochrom Ontology (Development Snapshot)
     uri: https://raw.githubusercontent.com/monarch-initiative/monochrom/master/chr.owl
     description: >
-      Inofficial development snapshot of the Human Phenotype Ontologies. https://github.com/monarch-initiative/monochrom/issues
+      Unofficial development snapshot of the Human Phenotype Ontologies. https://github.com/monarch-initiative/monochrom/issues
     base_uri:
       - http://purl.obolibrary.org/obo/HP_
     synonym_property:

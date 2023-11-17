@@ -37,6 +37,7 @@ services:
         - ols.customisation.title=Ontology Lookup Service
         - ols.customisation.org=Monarch Initiative
         - ols.customisation.short-title=MOLS
+        - ols.customisation.supportMail=info@monarchinitiative.org
       volumes:
         - ./ols-neo4j-data:/mnt/neo4j
         - ./config/ols-config/logo-monarch.png:/mnt/web-custom/logo.png
