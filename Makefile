@@ -2,8 +2,8 @@ URIBASE = http://purl.obolibrary.org/obo
 
 ROBOT=robot
 # the below onts were collected from ols-config.yaml
-# (phenio is commented out until we produce a version of the file without cycles)
-ONTS = upheno2 upheno-patterns hp-edit chr mondo-edit mondo-rare mondo-patterns hp-branch-lymphoma.owl
+# (note that .owl is appended to each of these later on, so there's no need to add it here)
+ONTS = upheno2 upheno-patterns hp-edit chr mondo-edit mondo-rare mondo-patterns hp-branch-lymphoma
 
 #monarch
 ONTFILES = $(foreach n, $(ONTS), ontologies/$(n).owl)
