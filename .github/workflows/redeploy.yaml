@@ -2,10 +2,10 @@ name: Redeploy OLS pipeline
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
-      - redeploy-gh-action
+  # push:
+  #   branches:
+  #     - master
+  #     - redeploy-gh-action
 
 env:
   TARGET_MACHINE: "ontotools-stack"
