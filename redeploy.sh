@@ -58,7 +58,7 @@ ${DOCKERCMD} run \
   -e ROBOT=/tools/robot \
   -e ROBOT_JAVA_ARGS='-Xmx8G' \
   --rm -ti \
-  obolibrary/odkfull make ontologies
+  obolibrary/odkfull make ontologies -B
 
 # We decided to expose the neo4j import directory for OxO as a local directory, because it is very useful for debugging 
 # (checking the generated mapping tables etc). All other volumes are created and managed by docker-compose
