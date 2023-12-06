@@ -3,7 +3,7 @@ URIBASE = http://purl.obolibrary.org/obo
 ROBOT=robot
 # the below onts were collected from ols-config.yaml
 # (note that .owl is appended to each of these later on, so there's no need to add it here)
-ONTS = upheno2 upheno-patterns hp-edit chr mondo-edit mondo-rare mondo-patterns hp-branch-lymphoma
+ONTS = upheno2 upheno-patterns vbo-edit hp-edit chr mondo-edit mondo-rare mondo-patterns hp-branch-lymphoma
 
 #monarch
 ONTFILES = $(foreach n, $(ONTS), ontologies/$(n).owl)
@@ -40,6 +40,12 @@ ontologies/hp-edit.owl:
 	cd github/main && git clone --depth 1 https://github.com/obophenotype/human-phenotype-ontology.git
 	cd github/main/human-phenotype-ontology/src/ontology/ && make IMP=false PAT=false MIR=false hp.owl
 	cp github/main/human-phenotype-ontology/src/ontology/hp.owl $@
+
+ontologies/vbo-edit.owl:
+	mkdir -p github && mkdir -p github/main && rm -rf github/main/*
+	cd github/main && git clone --depth 1 https://github.com/monarch-initiative/vertebrate-breed-ontology.git
+	cd github/main/vertebrate-breed-ontology/src/ontology/ && make IMP=false PAT=false MIR=false vbo.owl -B
+	cp github/main/vertebrate-breed-ontology/src/ontology/vbo.owl $@
 
 ontologies/chr.owl: 
 	$(ROBOT) convert -I https://raw.githubusercontent.com/monarch-initiative/monochrom/master/chr.owl -o $@.tmp.owl && mv $@.tmp.owl $@

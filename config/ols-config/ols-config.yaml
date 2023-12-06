@@ -79,6 +79,22 @@ ontologies:
 #    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
     oboSlims: false
     ontology_purl : file:/mnt/ontologies/hp-branch-lymphoma.owl
+  - id: vbo
+    preferredPrefix: VBO_DEV
+    title: Verterbrate Breed Ontology (Development Snapshot)
+    uri: http://purl.obolibrary.org/obo/vbo.owl
+    description: >
+      A work in progress deployment of VBO. Contact Sabrina Toro. DO NOT USE IN PRODUCTION.
+    base_uri:
+      - http://purl.obolibrary.org/obo/VBO_
+    synonym_property:
+      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+#    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
+    oboSlims: false
+    ontology_purl : file:/mnt/ontologies/vbo-edit.owl
+  
   - id: mondo_rare
     preferredPrefix: MONDO_RARE
     title: Mondo Disease Ontology (Rare Disease Subset)
