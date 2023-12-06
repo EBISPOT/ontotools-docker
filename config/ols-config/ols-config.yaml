@@ -79,7 +79,7 @@ ontologies:
 #    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
     oboSlims: false
     ontology_purl : file:/mnt/ontologies/hp-branch-lymphoma.owl
-  - id: vbodev
+  - id: vbo
     preferredPrefix: VBO_DEV
     title: Verterbrate Breed Ontology (Development Snapshot)
     uri: http://purl.obolibrary.org/obo/vbo.owl
