@@ -50,8 +50,10 @@ ontologies/vbo-edit.owl:
 ontologies/chr.owl: 
 	$(ROBOT) convert -I https://raw.githubusercontent.com/monarch-initiative/monochrom/master/chr.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
+UPHENO_URL=https://github.com/obophenotype/upheno-dev/releases/download/v2023-10-27/upheno_all.owl
+
 ontologies/upheno2.owl: 
-	$(ROBOT) -vv merge -I https://bbop-ontologies.s3.amazonaws.com/upheno/current/upheno-release/all/upheno_all_with_relations.owl \
+	$(ROBOT) -vv merge -I $(UPHENO_URL) \
 	remove --term-file src/remove_terms.txt \
 	annotate --link-annotation http://purl.obolibrary.org/obo/IAO_0000700 http://purl.obolibrary.org/obo/UPHENO_0001001 -o $@.tmp.owl && mv $@.tmp.owl $@
 
