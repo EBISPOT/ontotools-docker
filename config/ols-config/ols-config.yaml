@@ -94,7 +94,7 @@ ontologies:
 #    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
     oboSlims: false
     ontology_purl : file:/mnt/ontologies/vbo-edit.owl
-  
+    reasoner: EL
   - id: mondo_rare
     preferredPrefix: MONDO_RARE
     title: Mondo Disease Ontology (Rare Disease Subset)
