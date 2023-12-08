@@ -39,7 +39,7 @@ ontologies:
     preferredPrefix: MONDO_PATTERN
     title: Mondo Disease Ontology Pattern Ontology
     description: >
-      Ontology that contains all the currently defined Mondo patterns
+      Ontology that contains all the currently defined Mondo patterns.  DO NOT USE IN PRODUCTION.
     uri: https://raw.githubusercontent.com/monarch-initiative/mondo/master/src/patterns/pattern.owl
     base_uri:
       - http://purl.obolibrary.org/obo/mondo/patterns/
@@ -54,7 +54,7 @@ ontologies:
     title: Human Phenotype Ontology (Development Snapshot)
     uri: http://purl.obolibrary.org/obo/hp.owl
     description: >
-      Unofficial development snapshot of the Human Phenotype Ontologies. Contact Peter Robinson.
+      Unofficial development snapshot of the Human Phenotype Ontologies. Contact Peter Robinson. DO NOT USE IN PRODUCTION.
     base_uri:
       - http://purl.obolibrary.org/obo/HP_
     synonym_property:
@@ -69,7 +69,7 @@ ontologies:
     title: Human Phenotype Ontology (Lymphoma Branch)
     uri: http://purl.obolibrary.org/obo/hp.owl
     description: >
-      A work in progress deployment of HPO Lymphoma branch. Contact Peter Robinson.
+      A work in progress deployment of HPO Lymphoma branch. Contact Peter Robinson. DO NOT USE IN PRODUCTION.
     base_uri:
       - http://purl.obolibrary.org/obo/HP_
     synonym_property:
@@ -100,7 +100,7 @@ ontologies:
     title: Mondo Disease Ontology (Rare Disease Subset)
     uri: http://purl.obolibrary.org/obo/mondo/subsets/mondo-rare.owl
     description: >
-      The Mondo Rare Disease Subset.
+      The Mondo Rare Disease Subset. DO NOT USE IN PRODUCTION.
     base_uri:
       - http://purl.obolibrary.org/obo/MONDO_
     synonym_property:
@@ -115,7 +115,7 @@ ontologies:
     title: Mondo Disease Ontology (Development Snapshot)
     uri: http://purl.obolibrary.org/obo/mondo.owl
     description: >
-      Unofficial development snapshot of the Mondo Disease Ontology. Contact Sabrina Toro.
+      Unofficial development snapshot of the Mondo Disease Ontology. Contact Sabrina Toro. DO NOT USE IN PRODUCTION.
     base_uri:
       - http://purl.obolibrary.org/obo/MONDO_
     synonym_property:
