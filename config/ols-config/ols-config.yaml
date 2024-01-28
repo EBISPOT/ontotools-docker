@@ -81,7 +81,7 @@ ontologies:
     ontology_purl : file:/mnt/ontologies/hp-branch-lymphoma.owl
   - id: vbo
     preferredPrefix: VBO_DEV
-    title: Verterbrate Breed Ontology (Development Snapshot)
+    title: Vertebrate Breed Ontology (Development Snapshot)
     uri: http://purl.obolibrary.org/obo/vbo.owl
     description: >
       A work in progress deployment of VBO. Contact Sabrina Toro. DO NOT USE IN PRODUCTION.
