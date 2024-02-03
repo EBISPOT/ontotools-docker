@@ -3,7 +3,7 @@ URIBASE = http://purl.obolibrary.org/obo
 ROBOT=robot
 # the below onts were collected from ols-config.yaml
 # (note that .owl is appended to each of these later on, so there's no need to add it here)
-ONTS = upheno2 upheno-patterns vbo-edit hp-edit chr mondo-edit mondo-rare mondo-patterns hp-branch-lymphoma
+ONTS = upheno2 upheno-patterns vbo-edit hp-edit chr mondo-edit mondo-rare mondo-patterns hp-branch-lymphoma omim
 
 #monarch
 ONTFILES = $(foreach n, $(ONTS), ontologies/$(n).owl)
@@ -49,6 +49,9 @@ ontologies/vbo-edit.owl:
 
 ontologies/chr.owl: 
 	$(ROBOT) convert -I https://raw.githubusercontent.com/monarch-initiative/monochrom/master/chr.owl -o $@.tmp.owl && mv $@.tmp.owl $@
+
+ontologies/omim.owl: 
+	$(ROBOT) convert -I https://github.com/monarch-initiative/omim/releases/latest/download/omim.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
 UPHENO_URL=https://github.com/obophenotype/upheno-dev/releases/download/v2023-10-27/upheno_all.owl
 
