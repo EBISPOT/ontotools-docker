@@ -24,7 +24,34 @@ In order to showcase work in progress ontologies that are not official published
 
 The [International Human Cell Atlas initiative](https://www.humancellatlas.org/) aims to create comprehensive reference maps of all human cells—the fundamental units of life—as a basis for both understanding human health and diagnosing, monitoring, and treating disease.
 
-A selection of ontologies key to the HCA effort is accessible via their custom OLS installation [here](https://ontology.dev.data.humancellatlas.org/ontologies).
+A selection of ontologies key to the HCA effort is accessible via their custom OLS installation [here](https://ontology.archive.data.humancellatlas.org/index).
+
+# SemLookP
+
+The Semantic Lookup Platform **SemLookP** hosted by the [ZB MED - Information Centre for Life Sciences](https://www.zbmed.de/en/) should be used in the biomedical domain. We want to use the system as a backbone service for different other services. SemLookP should help us in the following task:
+
+- Create (semi-)automatic annotations for research data
+- Set up an enriched semantic search service
+- Give additional information about a specific terminology resource
+
+Our SemLookP services are accessible under:
+- terminology service: https://semanticlookup.zbmed.de/ols/index
+- mapping service: https://semanticlookup.zbmed.de/mappings/
+
+One of our first use cases where we use SemLookP to show additional information for a concept is our COVID-19 preprint viewer [preVIEW](https://preview.zbmed.de/).
+
+# TIB 
+The TIB main instance: https://terminology.tib.eu/ts/index.
+
+Other services are:
+- https://terminology.nfdi4chem.de/ts
+- https://terminology.nfdi4ing.de/ts/
+
+These three are using the same backend and using the parameter collection to identify the wished subset of ontologies in the TIB General.
+
+# The Anthropological Notation Ontology
+https://ols.imise.uni-leipzig.de/ontologies/anno
+
 
 
 
